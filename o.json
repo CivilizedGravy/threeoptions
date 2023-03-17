@@ -1,0 +1,56 @@
+[
+    {
+        "ptitle": "3 ton heat pump",
+        "title1": "Good",
+        "price1": "10000",
+        "benefits1": "14 SEER heat pump, 10 year parts warranty, 2 year labor warranty ",
+        "title2": "Better",
+        "price2": "15000",
+        "benefits2": "16 SEER heat pump, 10 year parts warranty, Lifetime Compressor warranty, 2 year labor warranty ",
+        "title3": "Best",
+        "price3": "20000",
+        "benefits3": "16 SEER heat pump, 10 year parts warranty, Lifetime Compressor warranty, 2 year labor warranty , WiFi smart thermostat, Whole home air purifier "
+    },
+    {
+        "ptitle": "2 ton ",
+        "title1": "Good",
+        "price1": "107",
+        "benefits1": "10 year parts warranty, 2 year labor warranty ",
+        "monthly1": "on",
+        "title2": "Better",
+        "price2": "160",
+        "benefits2": "10 year parts, lifetime compressor warranty, UV bulb, Electronic air filter, 2 years worth of filters",
+        "monthly2": "on",
+        "title3": "Best",
+        "price3": "304",
+        "benefits3": "10 year parts, lifetime compressor warranty,Dual UV bulb, Electronic air filter, 2 years worth of filters, 17 seer high efficiency system ",
+        "monthly3": "on"
+    },
+    {
+        "ptitle": "Condensate pump or p-trap",
+        "title1": "Good",
+        "price1": "241.91",
+        "benefits1": "Add p trap to air handler. ,vent it so that any p-traps down the line will  not be effected ,includes drain line cleaning",
+        "title2": "Better",
+        "price2": "892.89",
+        "benefits2": "Install condensate pump at air handler to pump out water., Connect to existing Drainline,   Connect to existing power",
+        "title3": "Best",
+        "price3": "1778.11",
+        "benefits3": "Install condensate pump at air handler to pump out water., Connect to newly installed Drainline,   Connect to existing power"
+    },
+    {
+        "ptitle": "IAQ basic",
+        "title1": "Good",
+        "price1": "20",
+        "benefits1": "Single Bulb High output UVC bulb, Lifetime ballast warranty, Three year bulb warranty, 2 year labor warranty ",
+        "monthly1": "on",
+        "title2": "Better",
+        "price2": "35",
+        "benefits2": "Single Bulb High output UVC bulb, Electronic air filter, 4 extra media pads, Lifetime ballast warranty, Lifetime power head warranty, Three year bulb warranty, 2 year labor warranty ",
+        "monthly2": "on",
+        "title3": "Best",
+        "price3": "60",
+        "benefits3": "Dual Bulb High output UVC bulb, Electronic air filter, 4 extra media pads, Lifetime ballast warranty, Lifetime power head warranty, Three year bulb warranty, 2 year labor warranty ,  UVV oxidizer for VOCs smells and odors",
+        "monthly3": "on"
+    }
+]

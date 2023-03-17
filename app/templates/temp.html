@@ -1,0 +1,10 @@
+<!doctype html>
+
+<head>
+</head>
+<body>
+
+{% for t in saved_templates%}
+<a href="/present?ptitle={{t['ptitle']}}&title1={{t['title1']}}&price1={{t['price1']}}&benefits1={{t['benefits1']}}&title2={{t['title2']}}&price2={{t['price2']}}&benefits2={{t['benefits2']}}&title3={{t['title3']}}&price3={{t['price3']}}&benefits3={{t['benefits3']}}">{{t['ptitle']}}</a>
+{% endfor %}
+</body>
