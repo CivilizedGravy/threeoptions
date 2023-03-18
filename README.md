@@ -6,6 +6,9 @@ https://threeoptions.org/
 
 # Todo
 -make login and guest access
+
 -fix editing
+
 -move data to sql 
+
 -enable template deletion
