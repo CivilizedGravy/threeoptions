@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for
 import json
 import os
-import auth
+import application.auth
 
 
 app = Flask(__name__)
