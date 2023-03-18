@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, url_for
 import json
-from flask_app import app
 import os
+
+app = Flask(__name__)
 
 @app.route('/new', methods=['GET', 'POST'])
 def new():
