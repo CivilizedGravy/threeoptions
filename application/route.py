@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, url_for
 import json
 import os
-from application import app
+import auth
 
+
+app = Flask(__name__)
 @app.route('/new', methods=['GET', 'POST'])
 def new():
     
@@ -86,6 +88,11 @@ def temps():
     saved_temps = json.loads(t.read())
     
     return render_template('templates.html', saved_templates = saved_temps)
+    
+    
+@app.route('/login')
+def login():
+    return render_template('login.html')
     
     
 if __name__ == '__main__':
