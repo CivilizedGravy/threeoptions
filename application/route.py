@@ -5,7 +5,7 @@ import application.auth
 import application.app
 
 
-app = Flask(__name__)
+
 @app.route('/new', methods=['GET', 'POST'])
 def new():
     

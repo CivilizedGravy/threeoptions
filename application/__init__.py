@@ -1,3 +1,5 @@
 from flask import Flask
-app = Flask(__name__)
+
 import application.route
+
+app = Flask(__name__)
