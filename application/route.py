@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, url_for
 import json
 import os
 import application.auth
-#import application.app
+from . import app
+
 
 
 
