@@ -21,7 +21,11 @@ def load_user(user_id):
 
 login_manager.login_view = 'login'
 
-
+@app.route('/delete',methods=['GET', 'POST'] )
+def delete():
+    arg = lambda x: request.args.get(x) if request.args.get(x) else ""
+    data = [d for d in data if d.get('title') != 'B']
+    return redirect(url_for('index'))
 @app.route('/new', methods=['GET', 'POST'])
 def new():
     
