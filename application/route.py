@@ -13,10 +13,25 @@ class User(UserMixin):
     def __init__(self, id):
         self.id = id
         
-
+def getuser(username):
+    con = sqlite3.connect('data.db')
+    cur = con.cursor()
+    user = cur.execute(f'SELECT username, templates FROM users WHERE (username="{username}")').fetchone()
+    return user
+    
+def update_templates(username, new_data):
+    con = sqlite3.connect('data.db')
+    cur = con.cursor()
+    #new_data = new_data.encode('unicode_escape')
+    
+    print(new_data)
+    user = cur.execute(f"UPDATE users SET  templates=json('{new_data}') WHERE (username='{username}')")
+    con.commit()
+    
 @login_manager.user_loader
 def load_user(user_id):
     # This function should return a User object based on the user_id passed to it.
+    
     return User(user_id)
 
 login_manager.login_view = 'login'
@@ -24,8 +39,9 @@ login_manager.login_view = 'login'
 @app.route('/delete',methods=['GET', 'POST'] )
 def delete():
     arg = lambda x: request.args.get(x) if request.args.get(x) else ""
-    data = [d for d in data if d.get('title') != 'B']
+    #data = [d for d in data if d.get('title') != 'B']
     return redirect(url_for('index'))
+    
 @app.route('/new', methods=['GET', 'POST'])
 def new():
     
@@ -90,18 +106,23 @@ def present():
 #http://127.0.0.1:5000/saveoptions?ptitle={{t['ptitle']}}&title1={{t['title1']}}&price1={{t['price1']}}&benefits1={{t['benefits1']}}&title2={{t['title2']}}&price2={{t['price2']}}&benefits2={{t['benefits2']}}&title3={{t['title3']}}&price3={{t['price3']}}&benefits3={{t['benefits3']}}
 def saveoptions():
     #save to user profilejson
+    username = session['user_id']
+    user_data = getuser(username)
+    if not user_data:
+        return redirect(url_for('index'))
     print(request.args.to_dict())
     arg = lambda x: request.args.get(x)
-    f = open(os.getcwd()+'/o.json', 'r')
+    #f = open(os.getcwd()+'/o.json', 'r')
     
-    json_temps=json.loads(f.read())
-    f.close()
+    json_temps=json.loads(user_data[1])
+    #f.close()
     
     json_temps.append(request.args.to_dict())
     
-    f = open(os.getcwd()+'/o.json', 'w')
-    f.write(json.dumps(json_temps, indent=4))
-    f.close()
+    #f = open(os.getcwd()+'/o.json', 'w')
+    #f.write
+    update_templates(username, json.dumps(json_temps, indent=4))
+    #f.close()
     
     return redirect(url_for('index'))
     
@@ -109,8 +130,10 @@ def saveoptions():
 @login_required
 def index():
     #load user profile json
-    t = open(os.getcwd()+'/o.json', 'r')
-    saved_temps = json.loads(t.read())
+    #t = open(os.getcwd()+'/o.json', 'r')
+    username=session['user_id']
+    user_data= getuser(username)
+    saved_temps = json.loads(user_data[1])
     
     return render_template('templates.html', saved_templates = saved_temps)
     

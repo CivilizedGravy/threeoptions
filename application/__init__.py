@@ -6,4 +6,6 @@ app.config.from_envvar('THREEOPTIONS_SETTINGS')
 if app.secret_key == None:
     print('secret not set will use a random generated one')
     app.secret_key = os.urandom(24)
-from . import route
+    
+if __name__ != 'application':
+    from . import route

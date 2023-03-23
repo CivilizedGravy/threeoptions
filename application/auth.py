@@ -1,6 +1,8 @@
 import sqlite3
 import bcrypt
 
+
+
 def hash(pw):
     return bcrypt.hashpw(pw,bcrypt.gensalt())
     
