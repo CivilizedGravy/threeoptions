@@ -2,5 +2,8 @@ from flask import Flask
 import os
 import random,string
 app = Flask(__name__)
-app.secret_key = b'\xbd\rzl\x86dK#19\xa8_\xa4\xf9\xb2\xa2\xa1X\xd3\x01\xdc\x0f\tP'
+app.config.from_envvar('THREEOPTIONS_SETTINGS')
+if app.secret_key == None:
+    print('secret not set will use a random generated one')
+    app.secret_key = os.urandom(24)
 from . import route
