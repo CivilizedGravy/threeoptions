@@ -37,12 +37,22 @@ def load_user(user_id):
 login_manager.login_view = 'login'
 
 @app.route('/delete',methods=['GET', 'POST'] )
+@login_required
 def delete():
     arg = lambda x: request.args.get(x) if request.args.get(x) else ""
-    #data = [d for d in data if d.get('title') != 'B']
+    username = session['user_id']
+    data = json.loads(getuser(username)[1])
+    
+    title = arg('ptitle')
+    
+    data = [d for d in data if d.get('ptitle') != title]
+    
+    
+    update_templates(username, json.dumps(data))
     return redirect(url_for('index'))
     
 @app.route('/new', methods=['GET', 'POST'])
+@login_required
 def new():
     
     arg = lambda x: request.args.get(x) if request.args.get(x) else ""
@@ -133,6 +143,8 @@ def index():
     #t = open(os.getcwd()+'/o.json', 'r')
     username=session['user_id']
     user_data= getuser(username)
+    if not user_data:
+        return redirect(url_for('index'))
     saved_temps = json.loads(user_data[1])
     
     return render_template('templates.html', saved_templates = saved_temps)
