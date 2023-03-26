@@ -144,7 +144,7 @@ def index():
     username=session['user_id']
     user_data= getuser(username)
     if not user_data:
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     saved_temps = json.loads(user_data[1])
     
     return render_template('templates.html', saved_templates = saved_temps)
